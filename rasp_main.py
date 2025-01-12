@@ -1,4 +1,5 @@
-# Raspberry Üzerinde Serial Porttan Sürekli Sorgu Yaparak Sadece Video Kaydı Başlatma ve Durdurma
+# Raspberry Üzerinde Serial Porttan Sürekli Sorgu Yaparak Video Kaydı Başlatma ve Durdurma İşlemi Yapılır.
+# Ardından kaydedilen video'nun path'i speed_estimation fonksiyonuna parametre olarak geçilir.
 
 import serial
 import time
