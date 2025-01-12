@@ -1,5 +1,5 @@
-# rasp_serial.py ile birlikte kullanılır.
-# rasp_perial.py ile kaydedilen videonun pathlerini alarak hız tahmini yapar.
+# rasp_main.py ile birlikte kullanılır.
+# rasp_main.py içerisinde kaydedilen videonun pathini alarak hız tahmini yapar.
 
 import os
 from collections import defaultdict, deque
