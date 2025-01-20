@@ -37,10 +37,10 @@ struct Signal SendSignal() {
   yaw_input = constrain(yaw_input, 425, 610);
 
   // Değerleri Belirlenen Aralıkla Maple | Map the values to specified range
-  data.throttle = map(throttle_input, 615, 415, 0, 180);
-  data.roll = map(roll_input, 625, 410, -20, 20);
-  data.pitch = map(pitch_input, 610, 425, -20, 20);
-  data.yaw = map(yaw_input, 610, 425, -20, 20);
+  data.throttle = map_double(throttle_input, 615, 415, 0, 180);
+  data.roll = map_double(roll_input, 625, 410, -20, 20);
+  data.pitch = map_double(pitch_input, 610, 425, -20, 20);
+  data.YawAngleChange = map_double(ignoreDeadBand(yaw_input), 610, 425, -180, 180);
 
   
   if (digitalRead(VIDEO_BUTTON_PIN) == HIGH) {
@@ -63,18 +63,14 @@ struct Signal SendSignal() {
   return data;
 }
 
-/*
-void SendButtonSignal() {
-  char video_signal;
-  if (digitalRead(BUTTON_START) == LOW) {
-    video_signal = 'S';  // Start sinyali
-    radio.write(&video_signal, sizeof(video_signal));
-    Serial.println("Start signal sent.");
-  } else if (digitalRead(BUTTON_STOP) == LOW) {
-    video_signal = 'E';  // End sinyali
-    radio.write(&video_signal, sizeof(video_signal));
-    Serial.println("End signal sent.");
-  }
-  delay(50);  // Debounce delay
+int ignoreDeadBand(int val) {
+  int center = (JOYSTICK_MIN_VALUE + JOYSTICK_MAX_VALUE) / 2;
+  if (abs(val - center) <= JOYSTICK_DEAD_BAND)
+    return center;
+  else
+    return val;
 }
-*/
+
+double map_double(double x, double in_min, double in_max, double out_min, double out_max){
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
