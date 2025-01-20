@@ -13,11 +13,11 @@
 #define LED_PIN 2
 
 struct Signal {
-    int throttle;
-    int roll;
-    int pitch;
-    int yaw;
+    double throttle;
+    double roll;
+    double pitch;
     char videoStatus;
+    double YawAngleChange;
 };
 
 #endif
