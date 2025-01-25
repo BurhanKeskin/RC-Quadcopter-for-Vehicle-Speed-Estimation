@@ -46,11 +46,11 @@ struct Signal GetSignal() {
     prev_yaw_change = data.YawAngleChange;
 
     if (data.videoStatus == 'S') {
-      //Serial.println("Start signal received. Sending to Raspberry Pi...");
-      Serial.write('S');  // Send to Raspberry Pi via UART
+      //Serial.println("Start sinyali alındı. Raspberry Pi'ye gönderiliyor...");
+      Serial.write('S');  // Raspberry Pi'ye UART üzerinden gönderme
     } else if (data.videoStatus == 'E') {
-      //Serial.println("End signal received. Sending to Raspberry Pi...");
-      Serial.write('E');  // Send to Raspberry Pi via UART
+      //Serial.println("End sinyali alındı. Raspberry Pi'ye gönderiliyor...");
+      Serial.write('E');  // Raspberry Pi'ye UART üzerinden gönderme
     }
 
   } else if (millis() - lastReceiveTime > 1000) {
