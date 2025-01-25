@@ -6,7 +6,7 @@ void setup() {
 
   // Video Kaydı İçin Gerekli Olan Buton Ayarları
   pinMode(VIDEO_BUTTON_PIN, INPUT_PULLUP);
-  pinMode(LED_PIN, OUTPUT); // LED pini çıkış olarak ayarlanıyor
+  pinMode(LED_PIN, OUTPUT); // LED pini çıkış olarak ayarlandı
   
   digitalWrite(LED_PIN, LOW); // Başlangıçta LED kapalı
 }
